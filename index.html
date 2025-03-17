@@ -7,42 +7,105 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
+        /* 头像独立放左侧，设置较大尺寸 */
+        .profile-img {
+            width: 300px; /* 放大头像 */
+            height: 300px; /* 头像高度与宽度一致，确保圆形 */
+            border-radius: 50%; /* 圆形边框 */
+            display: block; /* 确保是块级元素 */
+            margin-right: 30px;
+            object-fit: cover; /* 保证图片自适应圆形框 */
+            border: none; /* 去掉边框 */
+        }
+        /* 文字框单独处理 */
         .container {
-            max-width: 600px;
-            margin: 50px auto;
-            background: white;
-            padding: 20px;
+            max-width: 700px;
+            background: white; /* 只包裹文字部分 */
+            padding: 30px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left; /* 改为左对齐 */
         }
         h1 {
             color: #333;
+            margin: 0 0 10px 0; /* 让名字与邮箱之间有一点间距 */
+            font-size: 28px;
+        }
+        .email {
+            font-size: 16px;
+            color: #007bff;
+            text-decoration: none;
+            display: block; /* 让邮箱独占一行 */
+            margin-bottom: 15px; /* 让邮箱和段落之间有一点间距 */
         }
         p {
             color: #666;
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        /* 温暖的黄色，使用渐变效果 */
+        .highlight {
+            background: linear-gradient(90deg, #FFCC00, #FF5733);
+            color: transparent;
+            -webkit-background-clip: text;
+            font-weight: bold;
+        }
+
+        /* 使用荧光效果的文字 */
+        .highlight-glow {
+            color: #1b570d;
+            font-weight: bold;
+            text-shadow: 0 0 5px rgba(218, 255, 51, 0.6), 0 0 10px rgba(255, 87, 51, 0.6);
         }
         .social-links a {
             margin: 10px;
             text-decoration: none;
             color: #007bff;
             font-weight: bold;
+            font-size: 18px;
+        }
+        /* 布局：头像在左，文字在右 */
+        .layout {
+            display: flex;
+            align-items: center;
+            gap: 20px; /* 头像和文字间距 */
+        }
+        /* 适配移动端：让头像和文字垂直排列 */
+        @media (max-width: 768px) {
+            .layout {
+                flex-direction: column;
+                text-align: center;
+            }
+            .profile-img {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>你好，我是 [你的名字]</h1>
-        <p>我是 [你的职业/兴趣]，欢迎来到我的主页！</p>
-        <p>这里是我的社交链接：</p>
-        <div class="social-links">
-            <a href="https://github.com/yourusername" target="_blank">GitHub</a> |
-            <a href="https://twitter.com/yourusername" target="_blank">Twitter</a> |
-            <a href="mailto:your.email@example.com">Email</a>
+    <div class="layout">
+        <!-- 左侧头像（去掉边框） -->
+        <img src="avatar.jpg" alt="个人头像" class="profile-img">
+        
+        <!-- 右侧文字框（带白色背景和阴影） -->
+        <div class="container">
+            <h1>Xiaoyu Zhang</h1>
+            <a href="mailto:coscatter@gmail.com" class="email">coscatter@gmail.com</a>
+
+            <p>I am a CV researcher at SenseTime, specializing in 3D vision. My research focuses on <strong>NeRF</strong> and <strong>3DGS</strong>. And this is my newly created personal homepage.</p>
+            <br>
+            <br>
+            <p><span style="color: #767a7e;">Do you believe the era of 3D displays is coming? I do. <br>
+                If you do too, then</span> <span class="highlight">we're already friends</span><span style="font-size: 32px;">🍻</span>!</p>
         </div>
     </div>
 </body>
